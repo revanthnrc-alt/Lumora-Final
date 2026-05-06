@@ -1,0 +1,599 @@
+/* ============================================
+   What-If Scenario Simulator — Styles
+   ============================================ */
+
+/* Scenario Button in Header */
+.scenario-btn {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.scenario-btn:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(59, 130, 246, 0.3));
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+/* Scenario Modal Overlay */
+.scenario-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scenarioFadeIn 0.2s ease;
+}
+
+/* Scenario Modal */
+.scenario-modal {
+  background: var(--bg-secondary, #111827);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  width: 90vw;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+.scenario-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color, #1e293b);
+}
+
+.scenario-modal-title {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 14px;
+  font-weight: 600;
+  color: #c4b5fd;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scenario-modal-close {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary, #94a3b8);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.15s;
+}
+.scenario-modal-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+/* Scenario Cards Grid */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.scenario-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--border-color, #1e293b);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.scenario-card:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+.scenario-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-red, #ef4444), var(--accent-yellow, #eab308), var(--accent-blue, #3b82f6));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.scenario-card:hover::before {
+  opacity: 1;
+}
+
+.scenario-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.scenario-card-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.scenario-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.scenario-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary, #e2e8f0);
+  margin-bottom: 2px;
+}
+
+.scenario-card-subtitle {
+  font-size: 11px;
+  color: var(--text-secondary, #94a3b8);
+  line-height: 1.4;
+}
+
+/* Category Badges */
+.scenario-badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-mono, monospace);
+  display: inline-block;
+  margin-top: 6px;
+}
+.scenario-badge.military {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+.scenario-badge.cyber {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+}
+.scenario-badge.economic {
+  background: rgba(234, 179, 8, 0.2);
+  color: #fde047;
+}
+.scenario-badge.climate {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+}
+.scenario-badge.political {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+}
+
+/* ---- Detail View ---- */
+.scenario-detail {
+  padding: 20px;
+}
+
+.scenario-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.scenario-back-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary, #94a3b8);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  transition: all 0.15s;
+}
+.scenario-back-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.scenario-detail-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary, #e2e8f0);
+}
+
+.scenario-detail-desc {
+  color: var(--text-secondary, #94a3b8);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 6px;
+  border-left: 3px solid rgba(139, 92, 246, 0.4);
+}
+
+.scenario-section-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary, #94a3b8);
+  margin: 16px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-color, #1e293b);
+}
+
+/* Effects Timeline */
+.scenario-effects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.scenario-effect-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 6px;
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+  transition: all 0.3s;
+}
+.scenario-effect-item.severity-critical {
+  border-left-color: var(--accent-red, #ef4444);
+}
+.scenario-effect-item.severity-high {
+  border-left-color: var(--accent-yellow, #eab308);
+}
+.scenario-effect-item.severity-moderate {
+  border-left-color: var(--accent-blue, #3b82f6);
+}
+.scenario-effect-item.severity-low {
+  border-left-color: var(--accent-green, #22c55e);
+}
+
+.scenario-effect-icon {
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.scenario-effect-info {
+  flex: 1;
+}
+
+.scenario-effect-label {
+  font-weight: 600;
+  color: var(--text-primary, #e2e8f0);
+  margin-bottom: 2px;
+}
+
+.scenario-effect-desc {
+  color: var(--text-secondary, #94a3b8);
+  line-height: 1.4;
+}
+
+/* Market Impact Table */
+.market-impact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  margin-bottom: 16px;
+}
+.market-impact-table th {
+  text-align: left;
+  color: var(--text-secondary, #94a3b8);
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border-color, #1e293b);
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+.market-impact-table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: var(--text-primary, #e2e8f0);
+}
+.market-up {
+  color: #22c55e !important;
+  font-weight: 600;
+}
+.market-down {
+  color: #ef4444 !important;
+  font-weight: 600;
+}
+
+/* Affected Countries & Supply Chain */
+.scenario-countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.scenario-country-tag {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-family: var(--font-mono, monospace);
+}
+
+.scenario-supply-risks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+.scenario-supply-risks li {
+  padding: 4px 0 4px 16px;
+  position: relative;
+  font-size: 11px;
+  color: var(--text-secondary, #94a3b8);
+  line-height: 1.5;
+}
+.scenario-supply-risks li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-yellow, #eab308);
+}
+
+/* Action Buttons */
+.scenario-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color, #1e293b);
+}
+
+.scenario-simulate-btn,
+.scenario-ai-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  border: none;
+}
+
+.scenario-simulate-btn {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(234, 179, 8, 0.2));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+.scenario-simulate-btn:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(234, 179, 8, 0.3));
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.scenario-ai-btn {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.2));
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+}
+.scenario-ai-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(59, 130, 246, 0.3));
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+.scenario-ai-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.scenario-ai-btn.loading {
+  pointer-events: none;
+  position: relative;
+}
+.scenario-ai-btn.loading::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(196, 181, 253, 0.3);
+  border-top-color: #c4b5fd;
+  border-radius: 50%;
+  animation: scenarioSpin 0.8s linear infinite;
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Simulation HUD */
+.simulation-hud {
+  position: fixed;
+  top: 60px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
+  padding: 12px 16px;
+  z-index: 9999;
+  min-width: 320px;
+  max-width: 400px;
+  font-family: var(--font-mono, monospace);
+  animation: scenarioSlideInRight 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+.simulation-hud.pulse {
+  animation: scenarioSlideInRight 0.3s ease, scenarioPulseRed 2s ease-in-out infinite;
+}
+
+.sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sim-title {
+  color: #fca5a5;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.sim-stop-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  transition: all 0.15s;
+}
+.sim-stop-btn:hover {
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.sim-scenario-name {
+  color: var(--text-primary, #e2e8f0);
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.sim-progress-bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.sim-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ef4444, #eab308);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.sim-effects-log {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.sim-effect {
+  color: var(--text-primary, #e2e8f0);
+  font-size: 11px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  animation: scenarioEffectAppear 0.5s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.sim-effect-icon {
+  flex-shrink: 0;
+}
+.sim-effect-text {
+  flex: 1;
+  line-height: 1.3;
+}
+
+/* Intelligence Brief Card */
+.intel-brief {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  line-height: 1.7;
+  position: relative;
+  margin-top: 16px;
+  color: var(--text-primary, #e2e8f0);
+}
+.intel-brief::before {
+  content: 'CLASSIFIED // SCENARIO ANALYSIS';
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 9px;
+  color: rgba(239, 68, 68, 0.6);
+  letter-spacing: 1px;
+}
+.intel-brief-title {
+  color: var(--accent-yellow, #eab308);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+.intel-brief-title:first-child {
+  margin-top: 0;
+}
+.intel-brief-text {
+  color: var(--text-secondary, #94a3b8);
+  white-space: pre-wrap;
+}
+
+/* Animations */
+@keyframes scenarioFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scenarioSlideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes scenarioEffectAppear {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scenarioPulseRed {
+  0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.3), 0 8px 32px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 8px 32px rgba(0, 0, 0, 0.5); }
+}
+@keyframes scenarioSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+  .scenario-modal {
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .simulation-hud {
+    right: 8px;
+    left: 8px;
+    min-width: unset;
+    max-width: unset;
+  }
+  .scenario-actions {
+    flex-direction: column;
+  }
+}
