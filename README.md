@@ -107,8 +107,4 @@ npm run dev:happy
 - Some live data sources require additional provider keys or relays
 - If local dev shows stale content, hard refresh the browser with `Cmd + Shift + R`
 
-## Repository
 
-GitHub:
-
-[https://github.com/Sathya-Gynan05/Lumora-Final](https://github.com/Sathya-Gynan05/Lumora-Final)
